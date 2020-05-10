@@ -1,5 +1,4 @@
 # url of the data being parsed
-URL="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
 CSVNAME="data.csv"
 FILENAME="confirmed_cases.csv"
 TYPE="confirmed"
@@ -9,15 +8,11 @@ NETID="dec415"
 rm *.class
 rm *.jar
 rm $FILENAME
-hdfs dfs -rm -r -f $TYPE
+hdfs dfs -rm -r -f $TYPE/cleaned
 hdfs dfs -rm $FILENAME
 
 # get the data and store inside HDFS
-hdfs dfs -mkdir $TYPE 
-hdfs dfs -mkdir $TYPE/input
 hdfs dfs -mkdir $TYPE/cleaned
-hdfs dfs -put $CSVNAME $TYPE/input
-hdfs dfs -ls $TYPE/input
 
 # compile the code and run it on the hadoop cluster
 javac -classpath `yarn classpath` -d . CleanMapper.java
