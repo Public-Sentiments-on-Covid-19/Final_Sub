@@ -6,4 +6,4 @@
  # Data Analysis:
  - Reddit: First run curl.sh to move csv files from local env to Dumbo (Please be aware the location). Afterwards run import.scala in a spark shell. It will provide tables of some analysis.
  - Twitter: Push sentimental5.csv to HDFS. Run import.scala to get average values. Use DF.sort(asc("Date")) to sort by Date. Export to Tableau the results.
- - John Hopkins: Run confirmed_cases.sh to run all the data through map reduce code to calculate stats per country per day. Afterwards, load import.scala in a spark shell. It will provide tables for our data.
+ - John Hopkins: Run confirmed_cases.sh to run all the data through map reduce code to calculate stats per country per day. The data will be found on HDFS under cleaning. Afterwards, load import.scala in a spark shell. It will provide tables for our data. 
